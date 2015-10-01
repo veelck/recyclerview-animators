@@ -23,24 +23,24 @@ import jp.wasabeef.recyclerview.animators.internal.ViewHelper;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public abstract class AnimationAdapter<T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
 
-  private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
+  private RecyclerView.Adapter<T> mAdapter;
   private int mDuration = 300;
   private Interpolator mInterpolator = new LinearInterpolator();
   private int mLastPosition = -1;
 
   private boolean isFirstOnly = true;
 
-  public AnimationAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+  public AnimationAdapter(RecyclerView.Adapter<T> adapter) {
     mAdapter = adapter;
   }
 
-  @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+  @Override public T onCreateViewHolder(ViewGroup parent, int viewType) {
     return mAdapter.onCreateViewHolder(parent, viewType);
   }
 
-  @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+  @Override public void onBindViewHolder(T holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
     if (!isFirstOnly || position > mLastPosition) {
@@ -80,7 +80,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     return mAdapter.getItemViewType(position);
   }
 
-  public RecyclerView.Adapter<RecyclerView.ViewHolder> getWrappedAdapter() {
+  public RecyclerView.Adapter<? extends RecyclerView.ViewHolder> getWrappedAdapter() {
     return mAdapter;
   }
 }

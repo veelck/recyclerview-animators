@@ -21,16 +21,16 @@ import android.view.View;
  * limitations under the License.
  */
 
-public class ScaleInAnimationAdapter extends AnimationAdapter {
+public class ScaleInAnimationAdapter<T extends RecyclerView.ViewHolder> extends AnimationAdapter<T> {
 
   private static final float DEFAULT_SCALE_FROM = .5f;
   private final float mFrom;
 
-  public ScaleInAnimationAdapter(RecyclerView.Adapter adapter) {
+  public ScaleInAnimationAdapter(RecyclerView.Adapter<T> adapter) {
     this(adapter, DEFAULT_SCALE_FROM);
   }
 
-  public ScaleInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public ScaleInAnimationAdapter(RecyclerView.Adapter<T> adapter, float from) {
     super(adapter);
     mFrom = from;
   }

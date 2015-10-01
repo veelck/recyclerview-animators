@@ -21,16 +21,16 @@ import android.view.View;
  * limitations under the License.
  */
 
-public class AlphaInAnimationAdapter extends AnimationAdapter {
+public class AlphaInAnimationAdapter<T extends RecyclerView.ViewHolder> extends AnimationAdapter<T> {
 
   private static final float DEFAULT_ALPHA_FROM = 0f;
   private final float mFrom;
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<T> adapter) {
     this(adapter, DEFAULT_ALPHA_FROM);
   }
 
-  public AlphaInAnimationAdapter(RecyclerView.Adapter adapter, float from) {
+  public AlphaInAnimationAdapter(RecyclerView.Adapter<T> adapter, float from) {
     super(adapter);
     mFrom = from;
   }

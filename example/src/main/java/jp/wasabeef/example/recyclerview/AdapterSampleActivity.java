@@ -39,8 +39,8 @@ public class AdapterSampleActivity extends AppCompatActivity {
 
     recyclerView.setItemAnimator(new FadeInAnimator());
     MainAdapter adapter = new MainAdapter(this, new ArrayList<>(Arrays.asList(data)));
-    AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(adapter);
-    ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
+    AlphaInAnimationAdapter<?> alphaAdapter = new AlphaInAnimationAdapter<>(adapter);
+    ScaleInAnimationAdapter<?> scaleAdapter = new ScaleInAnimationAdapter<>(alphaAdapter);
     //        scaleAdapter.setFirstOnly(false);
     //        scaleAdapter.setInterpolator(new OvershootInterpolator());
     recyclerView.setAdapter(scaleAdapter);

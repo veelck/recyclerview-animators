@@ -21,9 +21,9 @@ import android.view.View;
  * limitations under the License.
  */
 
-public class SlideInLeftAnimationAdapter extends AnimationAdapter {
+public class SlideInLeftAnimationAdapter<T extends RecyclerView.ViewHolder> extends AnimationAdapter<T> {
 
-  public SlideInLeftAnimationAdapter(RecyclerView.Adapter adapter) {
+  public SlideInLeftAnimationAdapter(RecyclerView.Adapter<T> adapter) {
     super(adapter);
   }
 
